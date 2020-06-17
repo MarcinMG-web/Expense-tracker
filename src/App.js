@@ -14,7 +14,7 @@ function App() {
   return (
     <GlobalProvider>
 
-      <Header />
+      <Header></Header>
 
       <div className="container">
         <Balance></Balance>
