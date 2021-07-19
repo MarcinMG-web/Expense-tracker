@@ -9,7 +9,7 @@ import { GlobalProvider } from './context/GlobalState';
 
 import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <GlobalProvider>
       <Header />
