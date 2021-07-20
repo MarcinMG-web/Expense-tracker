@@ -1,13 +1,15 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-interface ITransactions {
-  id: number;
-  text: string;
-  amount: number;
-}
 
 export const Balance: React.FC = () => {
+
+  interface ITransactions {
+    id: number;
+    text: string;
+    amount: number;
+  }
+  
   const { transactions: ITransactions } = useContext(GlobalContext);
 
   const amounts: number[] = ITransactions.map(

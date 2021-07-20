@@ -2,9 +2,16 @@ import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
 export const IncomeExpenses: React.FC = () => {
-  const { transactions } = useContext(GlobalContext);
 
-  const amounts: number[] = transactions.map(
+  interface ITransactions {
+    id: number;
+    text: string;
+    amount: number;
+  }
+
+  const { transactions: ITransactions } = useContext(GlobalContext);
+
+  const amounts: number[] = ITransactions.map(
     (transaction: { id: number; text: string; amount: number }) =>
       transaction.amount
   );
