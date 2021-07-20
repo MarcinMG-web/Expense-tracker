@@ -1,10 +1,15 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-export const Transaction = ({ transaction }) => {
-  const { deleteTransaction } = useContext(GlobalContext);
+export interface TransactionProps {
+  transaction: { id: number; text: string; amount: number }
+}
 
-  const sing = transaction.amount < 0 ? '-' : '+';
+export const Transaction:React.FC<TransactionProps> = ({ transaction }) => {
+  
+  const { deleteTransaction }:any = useContext(GlobalContext);
+
+  const sing:string = transaction.amount < 0 ? '-' : '+';
 
   return (
     <li className={transaction.amount < 0 ? 'minus' : 'plus'}>

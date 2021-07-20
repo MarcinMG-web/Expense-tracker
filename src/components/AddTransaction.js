@@ -12,7 +12,7 @@ export const AddTransaction = () => {
 
     const newTransaction = {
       id: Date.now(),
-      text,
+      text: text,
       amount: +amount,
     };
     addTransaction(newTransaction);
