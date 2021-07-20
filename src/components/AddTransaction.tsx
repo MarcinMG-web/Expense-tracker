@@ -1,16 +1,20 @@
 import React, { useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-export const AddTransaction = () => {
+export const AddTransaction: React.FC = () => {
   const [text, setText] = useState('');
   const [amount, setAmount] = useState(0);
 
-  const { addTransaction } = useContext(GlobalContext);
+  const { addTransaction }: any = useContext(GlobalContext);
 
-  const onSubmit = (e) => {
+  const onSubmit = (e: React.SyntheticEvent): void => {
     e.preventDefault();
 
-    const newTransaction = {
+    const newTransaction: {
+      id: number;
+      text: string;
+      amount: number;
+    } = {
       id: Date.now(),
       text: text,
       amount: +amount,
@@ -39,7 +43,7 @@ export const AddTransaction = () => {
           <input
             type='number'
             value={amount}
-            onChange={(e) => setAmount(e.target.value)}
+            onChange={(e) => setAmount(e.target.valueAsNumber)}
             placeholder='Enter amount...'
           />
         </div>
