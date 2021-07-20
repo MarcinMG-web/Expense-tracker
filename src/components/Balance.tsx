@@ -1,15 +1,23 @@
 import React, { useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
 
-export const Balance: React.FC = () => {
-  const { transactions } = useContext(GlobalContext) ;
+interface ITransactions {
+  id: number;
+  text: string;
+  amount: number;
+}
 
-  const amounts:number[] = transactions.map(
+export const Balance: React.FC = () => {
+  const { transactions: ITransactions } = useContext(GlobalContext);
+
+  const amounts: number[] = ITransactions.map(
     (transaction: { id: number; text: string; amount: number }) =>
       transaction.amount
   );
 
-  const total:string = amounts.reduce((acc:number, item):number => (acc += item), 0).toFixed(2);
+  const total: string = amounts
+    .reduce((acc: number, item): number => (acc += item), 0)
+    .toFixed(2);
 
   return (
     <>
