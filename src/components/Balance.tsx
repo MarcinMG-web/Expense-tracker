@@ -17,8 +17,9 @@ export const Balance: React.FC = () => {
       transaction.amount
   );
 
+
   const total: string = amounts
-    .reduce((acc: number, item): number => (acc += item), 0)
+    .reduce((acc: number, item:number) => (acc += item), 0)
     .toFixed(2);
 
   return (
